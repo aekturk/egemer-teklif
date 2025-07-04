@@ -1,0 +1,254 @@
+/* src/index.css */
+/* Tailwind CSS burada üretilecektir, şimdilik boş kalabilir. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Genel font ayarı - Tailwind varsayılanı `Inter`'dir. */
+body {
+  font-family: 'Inter', sans-serif !important; /* Tema fontunu ezmek için !important */
+}
+
+/* WordPress temalarının bazı stilleri override etmesini engellemek için genel resetler */
+/* Bu kısım, temanın stillerini geçersiz kılmak için eklendi. */
+#egemer-offer-root * {
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: inherit !important;
+  font-size: inherit !important; /* İçerideki tüm elemanların font boyutunu miras almasını sağlar */
+  font-family: 'Inter', sans-serif !important; /* Tema fontunu ezmek için !important */
+}
+
+/* React uygulamasının ana kapsayıcısına özel stiller */
+#egemer-offer-root {
+  margin-top: 25px !important; /* Sayfanın en üstünden 25px aşağıya boşluk */
+  max-width: 80% !important; /* max-w-3xl = 768px'den %80'e güncellendi */
+  width: 95% !important; /* Daha küçük ekranlarda daha fazla yer kaplasın */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 32px !important; /* Tailwind'in p-8 (1.5rem = 24px) biraz daha fazla */
+  background-color: #ffffff !important;
+  border-radius: 0.75rem !important; /* rounded-xl */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important; /* shadow-lg */
+  position: relative !important; /* Tema müdahalelerine karşı pozisyon kontrolü */
+}
+
+
+/* Header Font Sizes - Özel kurallar */
+#egemer-offer-root h2 {
+  font-size: initial !important; /* Tema h2 font boyutunu sıfırla */
+  font-weight: normal !important; /* Tema h2 font ağırlığını sıfırla */
+  line-height: initial !important; /* Tema h2 satır yüksekliğini sıfırla */
+}
+#egemer-offer-root h2 span:first-child { /* "Adım X / 6 -" kısmı için */
+  font-size: 16px !important; /* Yaklaşık 12pt */
+  font-weight: normal !important;
+  line-height: inherit !important;
+}
+#egemer-offer-root h2 span:last-child { /* "Ürün Seçimi" gibi ana başlıklar için */
+  font-size: 30px !important; /* Yaklaşık 22pt */
+  font-weight: bold !important;
+  line-height: inherit !important;
+}
+
+/* İlerleme çubuğu */
+#egemer-offer-root .w-full {
+  width: 100% !important;
+}
+#egemer-offer-root .h-2\.5 { /* Tailwind h-2.5 = 0.625rem = 10px */
+  height: 10px !important;
+}
+#egemer-offer-root .bg-green-500 {
+  background-color: #22c55e !important; /* İlerleme çubuğu dolgu rengi */
+}
+#egemer-offer-root .bg-gray-200 {
+  background-color: #e5e7eb !important; /* İlerleme çubuğu arka plan rengi */
+}
+
+
+/* Buton renklerini zorlamak için */
+#egemer-offer-root button {
+    border-color: transparent !important; /* Çerçeveyi kaldır */
+    color: #fff !important; /* Metin rengini beyaz yap */
+    background-color: #16a34a !important; /* Varsayılan yeşil tonu (Teklifi Oluştur için) */
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important; /* shadow-sm */
+    padding: 0.5rem 1.5rem !important; /* py-2 px-6 */
+    border-radius: 0.375rem !important; /* rounded-md */
+    font-size: 0.875rem !important; /* text-base */
+    font-weight: 500 !important; /* font-medium */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important; /* Butonların küçülmesini engeller */
+}
+
+#egemer-offer-root button:hover {
+    background-color: #15803d !important; /* Hover yeşil tonu */
+}
+
+/* Geri butonu için özel stiller */
+#egemer-offer-root button[data-button-type="prev"] {
+    background-color: #4B5563 !important; /* gray-600 */
+}
+#egemer-offer-root button[data-button-type="prev"]:hover {
+    background-color: #374151 !important; /* gray-700 */
+}
+
+/* İleri butonu için özel stiller (Yeşile çevrildi) */
+#egemer-offer-root button[data-button-type="next"] {
+    background-color: #16a34a !important; /* blue-600 yerine green-600 yapıldı */
+}
+#egemer-offer-root button[data-button-type="next"]:hover {
+    background-color: #16a34a !important; /* blue-700 yerine green-700 yapıldı */
+}
+
+/* SVG ikon renkleri */
+#egemer-offer-root button svg {
+  fill: #fff !important; /* Butonun ikon rengini beyaz yap */
+}
+
+
+/* Form kutusu arka plan rengini zorlamak için */
+#egemer-offer-root .bg-white {
+  background-color: #ffffff !important;
+}
+
+/* Sayfa arka plan rengini zorlamak için */
+#egemer-offer-root .bg-gray-50 {
+  background-color: #f9fafb !important; /* Tailwind gray-50 */
+}
+
+
+/* Sayfa arka planının tüm viewport'u kapladığından emin ol */
+.min-h-screen { /* Bu kural artık doğrudan root'a değil, div'in kendisine uygulanmalı */
+  min-height: 100vh !important;
+  /* Burada padding'leri sıfırlıyoruz ki #egemer-offer-root div'i kontrol edebilsin */
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+
+/* Grid için özel stil - `egemer-grid` */
+/* Bu kurallar React bileşenindeki Tailwind grid sınıflarını ezecektir */
+#egemer-offer-root .egemer-grid {
+  display: grid !important;
+  grid-template-columns: repeat(1, minmax(0, 1fr)) !important; /* Mobil için tek sütun */
+  gap: 1.25rem !important; /* gap-5 (20px) */
+  justify-items: center !important; /* Öğeleri ortaya hizala */
+}
+
+@media (min-width: 640px) { /* sm breakpoint (tablet) */
+  #egemer-offer-root .egemer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* 2 sütun */
+    gap: 1.25rem !important;
+    justify-items: center !important; /* Öğeleri ortaya hizala */
+  }
+}
+
+@media (min-width: 1024px) { /* lg breakpoint (desktop) */
+  #egemer-offer-root .egemer-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important; /* 3 sütun */
+    gap: 1.25rem !important;
+    justify-items: center !important; /* Öğeleri ortaya hizala */
+  }
+}
+
+/* Grid öğelerinin padding, border ve tıklanabilirliğini zorlamak */
+#egemer-offer-root .egemer-grid > div { /* Doğrudan grid öğesini hedefle */
+  padding: 0.5rem !important; /* p-2, eski haline döndü */
+  border-width: 2px !important; /* border-2 */
+  border-radius: 0.5rem !important; /* rounded-lg */
+  transition-property: all !important;
+  transition-duration: 200ms !important;
+  cursor: pointer !important; /* Tıklanabilir olduğundan emin ol */
+  width: 100% !important; /* Grid öğelerinin tam genişliğini almasını sağlar */
+  overflow: hidden !important; /* Resimlerin kutu dışına taşmasını engelle */
+  height: auto !important; /* Yüksekliği otomatik hale getirdim */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important; /* İçeriği dikeyde yay */
+  align-items: center !important; /* Yatayda ortala */
+}
+
+/* Resimlerin oranını korumak için kapsayıcı div'i ve resim stilini güncelledim */
+#egemer-offer-root .image-container {
+  width: 100% !important;
+  padding-top: 100% !important; /* Kare en boy oranı için (genişliğin %100'ü kadar yükseklik) */
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 0.375rem !important; /* rounded-md */
+}
+
+#egemer-offer-root .image-container .item-image {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important; /* Resmi tamamen gösterecek şekilde sığdır, gerekirse boşluk bırakır */
+  border-radius: 0 !important; /* Zaten container'da var, içerdekini sıfırla */
+  margin-bottom: 0 !important; /* Bu div'e özel olduğu için gerek yok */
+}
+
+
+/* Seçili öğe stili */
+#egemer-offer-root .egemer-grid > div.border-blue-500 {
+  border-color: #3b82f6 !important; /* blue-500 */
+  background-color: #dbeafe !important; /* blue-100 */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important; /* shadow-lg */
+}
+
+/* Hover öğesi stili */
+#egemer-offer-root .egemer-grid > div.hover\:border-blue-300:hover {
+  border-color: #93c5fd !important; /* blue-300 */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important; /* hover:shadow-md */
+}
+
+/* Form alanları için genel reset ve stil geçersiz kılma */
+#egemer-offer-root input[type="text"],
+#egemer-offer-root input[type="tel"],
+#egemer-offer-root input[type="email"],
+#egemer-offer-root input[type="number"],
+#egemer-offer-root input[type="url"],
+#egemer-offer-root textarea,
+#egemer-offer-root select {
+  appearance: none !important; /* Tarayıcı varsayılan stillerini kaldırır */
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-color: #fff !important;
+  border: 1px solid #d1d5db !important; /* gray-300 */
+  border-radius: 0.375rem !important; /* rounded-md */
+  padding: 0.5rem 0.75rem !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important; /* shadow-sm */
+}
+
+#egemer-offer-root input:focus,
+#egemer-offer-root select:focus,
+#egemer-offer-root textarea:focus {
+  border-color: #3b82f6 !important; /* blue-500 */
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5) !important; /* blue-500 ring */
+  outline: none !important;
+}
+
+/* Buton ve inputlardaki artırma/azaltma ikonları için */
+/* Buton stilleri zaten yukarıda genel olarak ayarlandı, bu kısım gereksiz tekrarı önler */
+
+
+/* SVG ikon boyutları */
+#egemer-offer-root svg {
+  height: 1.25rem !important; /* h-5 */
+  width: 1.25rem !important; /* w-5 */
+  vertical-align: middle !important;
+}
+
+/* Navigasyon butonlarını içeren div için güçlü flex kuralları */
+#egemer-offer-root-inner-wrapper > form > div.flex.justify-between.items-center.mt-8.px-4 {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important; /* Butonların her zaman tek satırda kalmasını sağlar */
+    width: 100% !important; /* Ebeveyninin tam genişliğini almasını sağlar */
+    gap: 1rem !important; /* Butonlar arasına boşluk ekler */
+}

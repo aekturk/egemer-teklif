@@ -1,0 +1,18 @@
+{
+    "name": "your-vendor/egemer-teklif",
+    "description": "Egemer Teklif WordPress Plugin",
+    "type": "wordpress-plugin",
+    "require": {
+        "php": ">=8.2",
+        "dompdf/dompdf": "^2.0",
+        "phpoffice/phpspreadsheet": "^1.26"
+    },
+    "autoload": {
+        "psr-4": {
+            "EgemerOffer\\": "src/"
+        }
+    },
+    "config": {
+        "vendor-dir": "vendor"
+    }
+}
